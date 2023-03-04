@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<launch>
+  
+  
+
+    <!-- gazebo -->
+    <include file="$(find leo_erc_gazebo)/launch/leo_marsyard.launch"/>
+    <!-- rviz -->
+    <include file="$(find leo_erc_viz)/launch/rviz.launch"/>
+    <!-- teleop -->
+    <include file="$(find leo_erc_teleop)/launch/key_teleop.launch" />
+
+
+
+  
+</launch>
