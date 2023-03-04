@@ -1,0 +1,19 @@
+<launch>
+
+  <node name="pointcloud_to_laserscan_node"
+    pkg="pointcloud_to_laserscan"
+    type="pointcloud_to_laserscan_node">
+    <param name="target_frame" value="base_footprint"/>
+    <remap from="cloud_in" to="zed2/point_cloud/cloud_registered" />
+  </node>
+  <node name="gmapping"
+        pkg="gmapping"
+        type="slam_gmapping"
+        clear_params="true">
+    <rosparam command="load" 
+              file="$(find nav_stack)/config/slam_gmapping.yaml"/>
+  </node>
+  <include file="$(find nav_stack)/launch/odometry.launch"/>
+
+
+</launch>
